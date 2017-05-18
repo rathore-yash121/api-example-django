@@ -104,8 +104,23 @@ USE_L10N = True
 
 USE_TZ = True
 
+#SMTP settings for emails
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'rathore.yash121@gmail.com'
+EMAIL_HOST_PASSWORD = 'Yashyash_121'   #use your gmail password
+EMAIL_PORT = '587'
+EMAIL_BIRTHDAY_DEFAULT_MESSAGE = "Hi, \n\nDrchrono team wishes you a healthy Birthday! We would like you to know that your next checkup is on us. Feel free to book an appointment :) \n\n- drchrono team"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (('assets', os.path.join(PROJECT_DIR, '../static')),)
+
+# keys for Oauth
+SOCIAL_AUTH_DRCHRONO_KEY = 'ngkJ5R7fseS8jWQPLO0dixqhM6RZgZQXapA2hzgg'
+SOCIAL_AUTH_DRCHRONO_SECRET = 'MMVusUaXgcgemUEka3aLBYpPZLyasaRrIOV28hsl5EWdgNgg81MskpmUH5hcDdXcrft4TPNFJ4pH35NB2fQbMpSfWk5h5m5RYcDNOKEScPGw4YWHHnjJbdmyzfWar5gx'
+LOGIN_REDIRECT_URL = '/home'
