@@ -8,8 +8,10 @@ urlpatterns = [
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
 
-    url(r'^home/$',  'drchrono.views.home', name='home'),
+    # url(r'^home/$',  'drchrono.views.home', name='home'),
 
-    url(r'^createEmail/$',  'drchrono.views.createEmail', name='createEmail'),
+    url(r'^dashboard/$',  'drchrono.views.dashboard', name='dashboard'),
+
+    # url(r'^createEmail/$',  'drchrono.views.createEmail', name='createEmail'),
 
 ]

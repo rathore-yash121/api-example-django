@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Drchrono Birthday Wisher</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script src="myScript.js"></script> -->
+    <script src="{% static "assets/js/myScript.js" %}"></script>
+
+</head>
+<body id="dashboardPage">
+
+<nav class="navbar navbar-inverse">
+
+  <div class="container-fluid">
+      <img src="{% static "assets/img/logo.png" %}" style="float:left"/>
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+
+    <div class="text-left">
+      <h1 style="padding-left:15px">Welcome,  Dr. {{name}}</h1>
+    </div>
+    <div class="cards">
+      <div class="col-sm-6">
+        <div class="dashboard-section-container">
+            <div class="dashboard-section-header">
+                <div class="pull-left">
+                    <a href="/billing/live_claims_feed" class="header-icon" ><i class="icon-usd"></i></a>
+                </div>
+                <span class="header-label">Birthdays Today <span class="message-badge">{{numberOfBirthdays}}</span></span>
+                <div class="pull-right">
+                    <a href="/billing/live_claims_feed" class="btn-arrow"><i class="icon-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- display patient's with birthdays -->
+            <div class="dashboard-section-body">
+              {% if confirmation %}
+                <h4 align="center" >{{confirmation}}</h4>
+              {% endif %}
+              <div class="list-group" id="birthdayList">
+              {% for patients in birthdayList %}
+                  <a  class="list-group-item" id="{{patients.patient_email}}">{{patients.first_name}} {{patients.last_name}}
+                    {% if patients.patient_email %}
+                         <input type="checkbox" class="checkName pull-right">
+                  	{% endif %}
+                  </a>
+            	    <!-- <li>{{ patients|safe }}</li>  email="{{patients.email}}"-->
+            	{% endfor %}
+              </div>
+
+                <div class="buttons">
+                    <button class="btn btn-primary" id="sendWishesBtn">Send Wishes</button>
+                </div>
+              
+                <div class="sendMail" id="sendMail" style="display:none">
+                    <form method="post" action="">{% csrf_token%}
+                      <input class="form-control" id="recipients" name="recipients" type="text" placeholder="Recipients">
+                      <input class="form-control" id="recipientsEmail" name="recipientsEmail" type="hidden">
+                      <input class="form-control" id="subject" name="subject" type="text" placeholder="Subject">
+                      <ul>
+                      {{ form.as_ul}}
+                      </ul>
+                        <div class="buttons">
+                           <input type="submit" value="Send Wishes" class="btn btn-primary">
+                           <button class="btn btn-danger btn-sm pull-right" id="discardBtn">Discard </button>
+                        </div>
+                    </form>
+                </div>
+
+
+              </div>
+      </div>
+      <div class="dashboard-section-container">
+            <div class="dashboard-section-header">
+                <div class="pull-left">
+                    <a href="/billing/live_claims_feed" class="header-icon" ><i class="icon-usd"></i></a>
+                </div>
+                <span class="header-label">Appointments <span class="message-badge">2</span></span>
+                <div class="pull-right">
+                    <a href="/billing/live_claims_feed" class="btn-arrow"><i class="icon-chevron-right"></i></a>
+                </div>
+            </div>
+            <div class="dashboard-section-body">
+                <div class="list-group" id="list1">
+                    <!--
+                  <a href="#" class="list-group-item active">List 1 <input title="toggle all" type="checkbox" class="all pull-right"></a>
+                  <a href="#" class="list-group-item"><input type="checkbox"><span style="padding-left:20px;">Second item</span>
+                    <div class="buttons pull-right"><button class="btn btn-primary" type="submit">Send Mail</button>
+                      <button class="btn btn-primary" type="submit">Button</button></div></a>-->
+
+                  <a  class="list-group-item">Greg </a>
+                    <a  class="list-group-item">Anna </a>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-primary" type="submit">Add to Calendar</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    <div class="col-sm-6">
+        <div class="dashboard-section-container">
+            <div class="dashboard-section-header">
+                <div class="pull-left">
+                    <a href="/billing/live_claims_feed" class="header-icon" ><i class="icon-usd"></i></a>
+                </div>
+                <span class="header-label">Messages <span class="message-badge">5</span></span>
+                <div class="pull-right">
+                    <a href="/billing/live_claims_feed" class="btn-arrow"><i class="icon-chevron-right"></i></a>
+                </div>
+            </div>
+            <div class="dashboard-section-body">
+                <div class="list-group" id="list1">
+                    <!--
+                  <a href="#" class="list-group-item active">List 1 <input title="toggle all" type="checkbox" class="all pull-right"></a>
+                  <a href="#" class="list-group-item"><input type="checkbox"><span style="padding-left:20px;">Second item</span>
+                    <div class="buttons pull-right"><button class="btn btn-primary" type="submit">Send Mail</button>
+                      <button class="btn btn-primary" type="submit">Button</button></div></a>-->
+
+                    <a  class="list-group-item">Faxes <span class="pull-right">5</span></a>
+                    <a  class="list-group-item">Lab Result <span class="pull-right">0</span></a>
+                    <a  class="list-group-item">eRX <span class="pull-right">0</span></a>
+                    <a  class="list-group-item">Referrals <span class="pull-right">1</span></a>
+                    <a  class="list-group-item">Tasks <span class="pull-right">3</span></a>
+                </div>
+            </div>
+          </div>
+        <div class="dashboard-section-container">
+            <div class="dashboard-section-header">
+                <div class="pull-left">
+                    <a href="/billing/live_claims_feed" class="header-icon" ><i class="icon-usd"></i></a>
+                </div>
+                <span class="header-label">Usage <span class="message-badge">3</span></span>
+                <div class="pull-right">
+                    <a href="/billing/live_claims_feed" class="btn-arrow"><i class="icon-chevron-right"></i></a>
+                </div>
+            </div>
+            <div class="dashboard-section-body">
+                <div class="list-group" id="list1">
+                    <!--
+                  <a href="#" class="list-group-item active">List 1 <input title="toggle all" type="checkbox" class="all pull-right"></a>
+                  <a href="#" class="list-group-item"><input type="checkbox"><span style="padding-left:20px;">Second item</span>
+                    <div class="buttons pull-right"><button class="btn btn-primary" type="submit">Send Mail</button>
+                      <button class="btn btn-primary" type="submit">Button</button></div></a>-->
+                  <a  class="list-group-item">Usage 1 </a>
+                  <a  class="list-group-item">Something Else </a>
+                  <a  class="list-group-item">Another </a>
+
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-primary" type="submit">Mail Copy</button>
+                    <button class="btn btn-primary pull-right" type="submit">Print </button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+    <!--
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="myStyle.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/myStyle.css" %}">
+</body>
+</html>

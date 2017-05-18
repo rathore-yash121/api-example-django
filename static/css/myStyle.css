@@ -1,0 +1,126 @@
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+body{
+    background: #f5f5f5
+}
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {    
+    padding: 45px;
+}
+
+.cards{
+    margin: 15px 0px;
+    overflow: auto;
+}
+
+.dashboard-section-container {
+    text-align: left;    
+    width: 100%;
+       
+    box-shadow: 0px 0px 10px #d3d3d3;
+    margin: 20px auto;
+}
+
+.dashboard-section-header {
+    height: 50px;
+    background: #696f7d;
+    font-weight: 200;
+    font-size: 20px;
+    color: #fff;
+}
+
+.dashboard-section-header .header-label {
+    height: 50px;
+    line-height: 50px;
+    margin-left: 10px;
+}
+
+.dashboard-section-header .message-badge {
+    font-size: 16px;
+    color: #afff00;
+    background: #555a64;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 5px;
+    vertical-align: 2px;
+}
+
+.dashboard-section-body {
+    background: #ffffff;
+   overflow: auto;
+    font-size: 18px;
+}
+
+.dashboard-section-body .list-group-item{
+    border-radius: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+}
+
+.dashboard-section-body .buttons{
+    padding: 10px;
+}
+
+.sendMail{
+    max-width: 400px;
+    min-width: 250px;
+    margin: 10px auto;
+    border: 1px solid #d3d3d3;
+}
+
+.sendMail input, .sendMail textarea, .sendMail div{
+    display: block;
+    width: 100%;
+    border:none;
+    border-bottom: 1px solid #d3d3d3;
+}
+.sendMail .buttons{
+    padding: 5px;
+    background-color: #d3d3d3;
+}
+
+.sendMail .form-control{
+    border-radius: 0px !important;
+}
+  
+/*
+.card{
+    text-align: left;
+    
+    
+    width: 400px;
+    min-height: 250px;
+    box-shadow: 0px 0px 2px #d3d3d3;
+    margin: 0 auto;
+}*/
+    
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  
+    .row.content {    
+        padding: 15px;
+        height: auto;
+    }
+}
