@@ -2,6 +2,32 @@
 body{
     background: #f5f5f5
 }
+
+body#indexPage {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: none;
+}
+
+.loginBox{
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    color: white;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px #555;
+}
+
+
+.full {
+  background: url('../img/title2.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
