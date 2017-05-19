@@ -74,7 +74,6 @@
                          <input type="checkbox" class="checkName pull-right">
                   	{% endif %}
                   </a>
-            	    <!-- <li>{{ patients|safe }}</li>  email="{{patients.email}}"-->
             	{% endfor %}
               </div>
 
@@ -91,10 +90,10 @@
                       {{ form.as_ul}}
                       </ul>
                         <div class="buttons">
-                           <input type="submit" value="Send Wishes" class="btn btn-primary">
-                           <button class="btn btn-danger btn-sm pull-right" id="discardBtn">Discard </button>
+                           <input type="submit" value="Send Wishes" class="btn btn-primary"></input>
                         </div>
                     </form>
+                    <button class="btn btn-danger btn-sm pull-right" id="discardBtn">Discard </button>
                 </div>
 
 

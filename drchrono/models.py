@@ -4,7 +4,7 @@ import datetime
 # Create your models here.
 
 @python_2_unicode_compatible
-class PatientDataModel(models.Model):
+class PatientDataModel(models.Model):       #patientmodel to store the patient's details
     patient_id = models.IntegerField(null=False, primary_key=True)
     first_name = models.CharField(max_length=20, null=False)
     last_name = models.CharField(max_length=20, null=False)

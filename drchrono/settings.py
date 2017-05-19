@@ -107,20 +107,19 @@ USE_TZ = True
 #SMTP settings for emails
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'rathore.yash121@gmail.com'
+EMAIL_HOST_USER = ''  #use your gmail id
 EMAIL_HOST_PASSWORD = ''   #use your gmail password
 EMAIL_PORT = '587'
 EMAIL_BIRTHDAY_DEFAULT_MESSAGE = "Hi, \n\nMany Many Happy Returns of the day! We would like you to know that your next check-up is on us. Book your appointment today! :) \n\n- DrChrono team"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (('assets', os.path.join(PROJECT_DIR, '../static')),)
 
 # keys for Oauth
-SOCIAL_AUTH_DRCHRONO_KEY = 'ngkJ5R7fseS8jWQPLO0dixqhM6RZgZQXapA2hzgg'
-SOCIAL_AUTH_DRCHRONO_SECRET = 'MMVusUaXgcgemUEka3aLBYpPZLyasaRrIOV28hsl5EWdgNgg81MskpmUH5hcDdXcrft4TPNFJ4pH35NB2fQbMpSfWk5h5m5RYcDNOKEScPGw4YWHHnjJbdmyzfWar5gx'
-LOGIN_REDIRECT_URL = '/dashboard'
+SOCIAL_AUTH_DRCHRONO_KEY = ''   #put your own drchrono_key
+SOCIAL_AUTH_DRCHRONO_SECRET = '' #put your own drchrono_secret
+LOGIN_REDIRECT_URL = '/dashboard'   #redirect to dashboard page after successful login
