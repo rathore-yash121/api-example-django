@@ -36,7 +36,8 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li> -->
+        <li> <a class="glyphicon glyphicon-log-out" href="{% url 'logout' %}"> Logout </a></li>
       </ul>
     </div>
   </div>
@@ -80,7 +81,7 @@
                 <div class="buttons">
                     <button class="btn btn-primary" id="sendWishesBtn">Send Wishes</button>
                 </div>
-              
+
                 <div class="sendMail" id="sendMail" style="display:none">
                     <form method="post" action="">{% csrf_token%}
                       <input class="form-control" id="recipients" name="recipients" type="text" placeholder="Recipients">

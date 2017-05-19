@@ -1,5 +1,6 @@
 from django.conf.urls import include, url
 from django.views.generic import TemplateView
+from django.contrib.auth.views import logout
 
 import views
 
@@ -8,10 +9,8 @@ urlpatterns = [
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
 
-    # url(r'^home/$',  'drchrono.views.home', name='home'),
-
     url(r'^dashboard/$',  'drchrono.views.dashboard', name='dashboard'),
 
-    # url(r'^createEmail/$',  'drchrono.views.createEmail', name='createEmail'),
+    url(r'^logout/$', logout, {'next_page': 'index'}, name='logout'),
 
 ]
