@@ -35,3 +35,6 @@ EMAIL_HOST_PASSWORD
   - On submitting, an email is sent to all the selected patients instantaneously.
   - Since this is a mass email sending, the recipient list is added in the bcc, just to make things look more personalized from the patient's perspective.
   - Finally the User can logout, for security reasons ofcourse. :)  
+
+
+Demo video url - https://youtu.be/ExtSmiS2ppU
